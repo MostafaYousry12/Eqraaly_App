@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-const kBackgroundColor = Color(0xff100B20);
+const kBackgroundColor = Color.fromARGB(255, 48, 0, 83);

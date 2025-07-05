@@ -14,7 +14,8 @@ class EqraalyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData().copyWith(scaffoldBackgroundColor: kBackgroundColor),
+      theme:
+          ThemeData.dark().copyWith(scaffoldBackgroundColor: kBackgroundColor),
       home: SplashView(),
     );
   }
