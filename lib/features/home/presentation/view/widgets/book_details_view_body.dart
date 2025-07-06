@@ -1,12 +1,6 @@
-import 'package:eqraaly_app/core/utils/styles.dart';
-import 'package:eqraaly_app/core/widgets/custom_buttom.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/book_action.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/book_detail_list_view_section.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/book_detail_section.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/book_rating.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_detail_view_app_bar.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_list_view_item.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/details_body_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
