@@ -1,7 +1,6 @@
 import 'package:eqraaly_app/constants.dart';
-import 'package:eqraaly_app/features/splash/presentation/view/splash_view.dart';
+import 'package:eqraaly_app/core/utils/app_routers.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,13 +12,13 @@ class EqraalyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouters.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kBackgroundColor,
           textTheme:
               GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
-      home: const SplashView(),
     );
   }
 }

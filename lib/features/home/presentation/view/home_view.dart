@@ -1,11 +1,8 @@
 import 'package:eqraaly_app/constants.dart';
-import 'package:eqraaly_app/core/utils/assets.dart';
 import 'package:eqraaly_app/core/utils/styles.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/best_seller_list_view.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/best_seller_list_view_item.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_app_bar.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_list_view.dart';
-import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

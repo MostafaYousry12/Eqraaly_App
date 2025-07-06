@@ -3,7 +3,6 @@ import 'package:eqraaly_app/core/utils/assets.dart';
 import 'package:eqraaly_app/core/utils/styles.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
