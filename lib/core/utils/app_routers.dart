@@ -1,9 +1,12 @@
+import 'package:eqraaly_app/features/home/presentation/view/book_details_view.dart';
 import 'package:eqraaly_app/features/home/presentation/view/home_view.dart';
 import 'package:eqraaly_app/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouters {
   static const kHomeView = '/homeview';
+  static const kDetailsView = '/detailsview';
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -13,6 +16,10 @@ abstract class AppRouters {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kDetailsView,
+        builder: (context, state) => const BookDetailsView(),
       ),
     ],
   );
