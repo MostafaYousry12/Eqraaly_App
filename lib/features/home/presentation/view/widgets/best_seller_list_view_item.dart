@@ -65,7 +65,9 @@ class BestSellerListViewItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      const BookRating(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                      ),
                     ],
                   )
                 ],
