@@ -1,9 +1,11 @@
+import 'package:eqraaly_app/core/utils/app_routers.dart';
 import 'package:eqraaly_app/core/widgets/failure_massage.dart';
 import 'package:eqraaly_app/core/widgets/loading_indicator.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_list_view_item.dart';
 import 'package:eqraaly_app/features/home/presentation/view_models/FeaturedbookCubit/featuredbook_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomListView extends StatelessWidget {
   const CustomListView({super.key});
@@ -22,8 +24,15 @@ class CustomListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: CustomListViewItem(
-                    imgLink: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouters.kDetailsView,
+                          extra: state.books[index]);
+                    },
+                    child: CustomListViewItem(
+                      imgLink:
+                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    ),
                   ),
                 );
               },

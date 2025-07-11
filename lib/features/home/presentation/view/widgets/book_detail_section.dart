@@ -1,11 +1,14 @@
 import 'package:eqraaly_app/core/utils/styles.dart';
+import 'package:eqraaly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/book_action.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/book_rating.dart';
 import 'package:eqraaly_app/features/home/presentation/view/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailSection extends StatelessWidget {
-  const BookDetailSection({super.key});
+  const BookDetailSection({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +18,17 @@ class BookDetailSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .17),
-          child: const CustomListViewItem(
-            imgLink:
-                "https://www.google.com/imgres?q=image&imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-photo%2Fcloseup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg%3Fsemt%3Dais_hybrid%26w%3D740&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fjpg&docid=yqJqJJqv5sHd6M&tbnid=SwGkvs07DCYvoM&vet=12ahUKEwj1yN2W3rOOAxWEJ0QIHWIgA2UQM3oECGcQAA..i&w=740&h=1109&hcb=2&ved=2ahUKEwj1yN2W3rOOAxWEJ0QIHWIgA2UQM3oECGcQAA",
+          child: CustomListViewItem(
+            imgLink: bookModel.volumeInfo.imageLinks.thumbnail,
           ),
         ),
         const SizedBox(
           height: 30,
         ),
-        const Text(
-          "The Jungle Book",
-          style: Styles.textStyle30,
+        Text(
+          bookModel.volumeInfo.title!,
+          style: Styles.textStyle18,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
@@ -33,21 +36,28 @@ class BookDetailSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            "Rudyard Kiping",
+            maxLines: 1,
+            (bookModel.volumeInfo.authors != null &&
+                    bookModel.volumeInfo.authors!.isNotEmpty)
+                ? bookModel.volumeInfo.authors![0]
+                : "Unknown Author",
             style: Styles.textStyle14.copyWith(fontStyle: FontStyle.italic),
+            textAlign: TextAlign.center,
           ),
         ),
         const SizedBox(
           height: 6,
         ),
-        const BookRating(
-          ratingCount: 20,
+        BookRating(
+          ratingCount: bookModel.volumeInfo.pageCount!,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
           height: 15,
         ),
-        const BookAction(),
+        BookAction(
+          bookModel: bookModel,
+        ),
       ],
     );
   }

@@ -1,8 +1,12 @@
+import 'package:eqraaly_app/core/utils/url_launcher.dart';
 import 'package:eqraaly_app/core/widgets/custom_buttom.dart';
+import 'package:eqraaly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookAction extends StatelessWidget {
-  const BookAction({super.key});
+  const BookAction({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,9 @@ class BookAction extends StatelessWidget {
         ),
         Expanded(
           child: CustomButtom(
+            onPressed: () {
+              Uriluncher(bookModel.volumeInfo.previewLink!);
+            },
             text: "Free Preview",
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(16),
