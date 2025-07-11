@@ -17,7 +17,7 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouters.kDetailsView);
+        GoRouter.of(context).push(AppRouters.kDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
