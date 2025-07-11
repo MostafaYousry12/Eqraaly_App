@@ -16,11 +16,15 @@ class CustomListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .3,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6),
-                  child: CustomListViewItem(),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: CustomListViewItem(
+                    imgLink: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
                 );
               },
             ),
