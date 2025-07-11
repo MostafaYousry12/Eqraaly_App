@@ -28,7 +28,7 @@ class EqraalyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NewestbookCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchFeaturedBooks(),
         )
       ],
       child: MaterialApp.router(

@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -35,12 +36,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          SliverFillRemaining(
-            child: Padding(
-              padding: kEdgeInsets,
-              child: BestSellerListView(),
-            ),
-          )
+          BestSellerListView()
         ],
       ),
     );
