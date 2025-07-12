@@ -1,30 +1,37 @@
+import 'package:eqraaly_app/features/search/presentation/view_models/cubit/searchbooks_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key});
-
+class CustomSearchTextField extends StatelessWidget {
+  CustomSearchTextField({super.key});
+  var text = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: text,
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       decoration: InputDecoration(
+        enabledBorder: buildOutlineInputBorder(),
+        focusedBorder: buildOutlineInputBorder(),
         hintText: "Search",
         suffixIcon: IconButton(
-          onPressed: () {},
-          icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
+          icon: const Opacity(opacity: 0.8, child: Icon(Icons.search)),
+          onPressed: () {
+            if (text.text != "") {
+              BlocProvider.of<SearchbooksCubit>(context)
+                  .fetchSearchBooks(category: text.text);
+            }
+          },
         ),
-        focusedBorder: inputoutlineinputborder(),
-        enabledBorder: inputoutlineinputborder(),
       ),
     );
   }
 
-  OutlineInputBorder inputoutlineinputborder() {
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
-      borderSide: const BorderSide(
-        color: Colors.white,
-      ),
-      borderRadius: BorderRadius.circular(16),
-    );
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Colors.white));
   }
 }
